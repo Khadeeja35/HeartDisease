@@ -1,7 +1,25 @@
-import matplotlib.pyplot as plt
-import numpy as np
-dataPt, HeartDiseaseorAttack, HighBP, BMI, CholCheck, HighChol, Smoker, Stroke, Diabetes, PhysActivity, Fruits = np.loadtxt(
- "heart_disease_health_indicators_BRFSS2015.csv", usecols=(1,2,3,4,5,6,7,8,9,10,11),skiprows=1, delimiter=",", unpack=True)
+# This code creates a scatter plot showing the number of epople with heart disease
+# for each BMI value
 
-plt.scatter(BMI, HighChol)
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Load data needed from the CSV
+df = pd.read_csv("HeartDiseaseData.csv",usecols=["HeartDiseaseorAttack","HighBP","HighChol","CholCheck","BMI","Smoker","Stroke","Diabetes","PhysActivity","Fruits"])
+
+# People with heart disease
+heart_disease = df[df["HeartDiseaseorAttack"] == 1] 
+
+# Count how many people with heart disease have each BMI value
+BMI_counts = heart_disease["BMI"].value_counts().sort_index()
+
+# Titles/labels
+plt.title("BMI vs Number of People with heart disease")
+plt.xlabel("Body Mass Index (BMI)")
+plt.ylabel("Number of People with heart disease")
+
+# Create the scatter plot
+plt.scatter(BMI_counts.index, BMI_counts.values)
+
+# Show the plot
 plt.show()
