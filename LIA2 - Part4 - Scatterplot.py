@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Load data needed from the CSV
-df = pd.read_csv("HeartDiseaseData.csv",usecols=["HeartDiseaseorAttack","HighBP","HighChol","CholCheck","BMI","Smoker","Stroke","Diabetes","PhysActivity","Fruits"])
+df = pd.read_csv("HeartDiseaseData.csv",usecols=["HeartDiseaseorAttack","BMI"])
 
 # People with heart disease
 heart_disease = df[df["HeartDiseaseorAttack"] == 1] 
