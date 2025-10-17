@@ -1,4 +1,4 @@
-# This code create a pie chart comparing the number of people with hert disease
+# This code create a pie chart comparing the number of people with heart disease
 # who also have diabetes, are smoker, or have had a stroke
 
 import matplotlib.pyplot as plt
